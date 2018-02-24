@@ -1,4 +1,7 @@
 const path = require("path");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+
+const dirsToCleanUp = ['dist'];
 
 module.exports = {
     entry: path.resolve(__dirname, "src", "index.js"),
@@ -15,5 +18,8 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new CleanWebpackPlugin(dirsToCleanUp)
+    ],
     devtool: "source-map"
 };
