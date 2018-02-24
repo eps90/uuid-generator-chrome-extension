@@ -1,6 +1,12 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractStyles = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+});
 
 const dirsToCleanUp = ["dist", "coverage"];
 
@@ -16,6 +22,23 @@ module.exports = {
         loaders: [
             {
                 test: /\.js/, loader: "babel-loader", exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                loader: extractStyles.extract({
+                    use: "css-loader",
+                    fallback: "style-loader"
+                })
+            },
+            {
+                test: /\.scss$/,
+                use: extractStyles.extract({
+                    use: [
+                        {loader: "css-loader"},
+                        {loader: "sass-loader"}
+                    ],
+                    fallback: "style-loader"
+                })
             }
         ]
     },
@@ -23,7 +46,8 @@ module.exports = {
         new CleanWebpackPlugin(dirsToCleanUp),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "src", "index.html")
-        })
+        }),
+        extractStyles
     ],
     devtool: "source-map"
 };
