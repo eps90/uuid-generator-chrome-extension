@@ -10,7 +10,10 @@ const extractStyles = new ExtractTextPlugin({
 });
 
 const dirsToCleanUp = ["dist", "coverage"];
-const filesToCopy = ["manifest.json"];
+const filesToCopy = [
+    "manifest.json",
+    {from: "img/*", flatten: true}
+];
 
 module.exports = {
     entry: path.resolve(__dirname, "src", "index.js"),

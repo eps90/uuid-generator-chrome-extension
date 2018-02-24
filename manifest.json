@@ -5,7 +5,17 @@
   "description": "Easily generate UUID",
   "author": "Jakub Turek <ja@kubaturek.pl>",
   "offline_enabled": true,
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "browser_action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "24": "icon24.png",
+      "32": "icon32.png"
+    },
     "default_popup": "index.html"
   },
   "permissions": [
