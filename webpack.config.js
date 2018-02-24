@@ -2,6 +2,7 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const extractStyles = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
@@ -9,6 +10,7 @@ const extractStyles = new ExtractTextPlugin({
 });
 
 const dirsToCleanUp = ["dist", "coverage"];
+const filesToCopy = ["manifest.json"];
 
 module.exports = {
     entry: path.resolve(__dirname, "src", "index.js"),
@@ -47,7 +49,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "src", "index.html")
         }),
-        extractStyles
+        extractStyles,
+        new CopyWebpackPlugin(filesToCopy)
     ],
     devtool: "source-map"
 };
