@@ -20,7 +20,8 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.4.2",
     "jest-enzyme": "^4.2.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
     "prop-types": "^15.6.0",
