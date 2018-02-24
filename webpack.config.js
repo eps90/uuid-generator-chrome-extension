@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ZipPlugin = require("zip-webpack-plugin");
 
 const extractStyles = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
@@ -53,7 +54,11 @@ module.exports = {
             template: path.resolve(__dirname, "src", "index.html")
         }),
         extractStyles,
-        new CopyWebpackPlugin(filesToCopy)
+        new CopyWebpackPlugin(filesToCopy),
+        new ZipPlugin({
+            path: path.resolve(__dirname, "build"),
+            filename: "uuid_generator.zip"
+        })
     ],
     devtool: "source-map"
 };
