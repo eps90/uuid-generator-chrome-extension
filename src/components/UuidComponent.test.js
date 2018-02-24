@@ -23,6 +23,15 @@ describe("UuidComponent", () => {
         expect(wrapper.find(UuidValue).first().text()).toEqual(generatedValue);
     });
 
+    it("should show an introduction message", () => {
+        const generateUuid = createGenerateUuidFunction();
+
+        const wrapper = mount(getComponentUnderTest(generateUuid));
+        wrapper.update();
+
+        expect(wrapper.find("span.uuid-container__label")).toHaveLength(1);
+    });
+
     function getComponentUnderTest(generateUrlFn) {
         return <UuidComponent generateUuid={generateUrlFn} />;
     }
