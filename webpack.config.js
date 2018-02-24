@@ -22,7 +22,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(dirsToCleanUp),
         new HtmlWebpackPlugin({
-            title: "UUID generator"
+            template: path.resolve(__dirname, "src", "index.html")
         })
     ],
     devtool: "source-map"
