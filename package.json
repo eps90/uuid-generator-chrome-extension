@@ -1,0 +1,8 @@
+{
+  "name": "uuid-generator-chrome-extension",
+  "version": "0.0.0",
+  "description": "Easily generate UUID",
+  "main": "index.js",
+  "author": "Jakub Turek <ja@kubaturek.pl>",
+  "license": "MIT"
+}
