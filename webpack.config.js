@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -17,7 +18,15 @@ const filesToCopy = [
 ];
 
 module.exports = {
-    entry: path.resolve(__dirname, "src", "index.js"),
+    entry: {
+        app: path.resolve(__dirname, "src", "index.js"),
+        vendor: [
+            "react",
+            "react-dom",
+            "prop-types",
+            "uuid"
+        ]
+    },
     output: {
         path: path.resolve("dist"),
         filename: "[name].[chunkhash].js",
@@ -54,6 +63,9 @@ module.exports = {
             template: path.resolve(__dirname, "src", "index.html")
         }),
         extractStyles,
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor"
+        }),
         new CopyWebpackPlugin(filesToCopy),
         new ZipPlugin({
             path: path.resolve(__dirname, "build"),
