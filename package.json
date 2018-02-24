@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Jakub Turek <ja@kubaturek.pl>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
