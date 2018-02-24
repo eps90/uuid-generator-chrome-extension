@@ -10,4 +10,4 @@ cache: yarn
 script: yarn test --coverage
 
 after_script:
-  - cat coverage/lconf.info | ./node_modules/.bin/codacy-coverage
+  - cat coverage/lcov.info | ./node_modules/.bin/codacy-coverage
