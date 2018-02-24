@@ -1,5 +1,6 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const dirsToCleanUp = ['dist'];
 
@@ -19,7 +20,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(dirsToCleanUp)
+        new CleanWebpackPlugin(dirsToCleanUp),
+        new HtmlWebpackPlugin({
+            title: "UUID generator"
+        })
     ],
     devtool: "source-map"
 };
