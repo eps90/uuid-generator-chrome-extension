@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
