@@ -6,3 +6,8 @@ node_js:
   - "7"
   - "6"
 cache: yarn
+
+script: yarn test --coverage
+
+after_script:
+  - cat coverage/lconf.info | ./node_modules/.bin/codacy-coverage
