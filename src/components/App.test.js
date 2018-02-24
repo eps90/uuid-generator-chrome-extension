@@ -11,6 +11,6 @@ describe("App component", () => {
 
     it("should pass generateUuid function to component", () => {
         const wrapper = shallow(<App/>);
-        expect(wrapper.find(UuidComponent).first().prop('generateUuid')).toBeDefined();
+        expect(wrapper.find(UuidComponent).first().prop("generateUuid")).toBeDefined();
     });
 });

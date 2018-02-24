@@ -2,7 +2,7 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const dirsToCleanUp = ['dist'];
+const dirsToCleanUp = ["dist"];
 
 module.exports = {
     entry: path.resolve(__dirname, "src", "index.js"),
