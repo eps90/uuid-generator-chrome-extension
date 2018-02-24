@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "UUID generator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Easily generate UUID",
   "author": "Jakub Turek <ja@kubaturek.pl>",
   "offline_enabled": true,
