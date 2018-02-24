@@ -45,6 +45,9 @@
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
     "setupFiles": [
       "<rootDir>/config/setupEnzyme.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(svg|scss|css)": "<rootDir>/__mocks__/fileMock.js"
+    }
   }
 }
