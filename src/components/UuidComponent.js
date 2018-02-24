@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import UuidValue from "./UuidValue";
 
+import "./../styles/UuidComponent.scss";
+
 export default class UuidComponent extends React.Component {
     static propTypes = {
         generateUuid: PropTypes.func.isRequired
@@ -22,6 +24,13 @@ export default class UuidComponent extends React.Component {
     }
 
     render() {
-        return <UuidValue uuid={this.state.uuid}/>;
+        return (
+            <div className="uuid-container">
+                <span className="uuid-container__label">
+                    Your generated UUID value is:
+                </span>
+                <UuidValue uuid={this.state.uuid}/>
+            </div>
+        );
     }
 }
