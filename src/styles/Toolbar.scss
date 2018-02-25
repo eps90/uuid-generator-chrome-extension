@@ -1,0 +1,12 @@
+@import "variables";
+
+button.toolbar-button {
+    background: none;
+    border: none;
+    color: $colorGreyDark;
+    cursor: pointer;
+
+    &:hover {
+        color: $colorGreyLight;
+    }
+}
