@@ -24,7 +24,10 @@ module.exports = {
             "react",
             "react-dom",
             "prop-types",
-            "uuid"
+            "uuid",
+            "@fortawesome/fontawesome",
+            "@fortawesome/fontawesome-free-solid",
+            "@fortawesome/react-fontawesome",
         ]
     },
     output: {
