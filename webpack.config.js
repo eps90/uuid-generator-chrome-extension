@@ -11,7 +11,7 @@ const extractStyles = new ExtractTextPlugin({
     disable: process.env.NODE_ENV === "development"
 });
 
-const dirsToCleanUp = ["dist", "coverage"];
+const dirsToCleanUp = ["dist", "coverage", "build"];
 const filesToCopy = [
     "manifest.json",
     {from: "img/*", flatten: true}
