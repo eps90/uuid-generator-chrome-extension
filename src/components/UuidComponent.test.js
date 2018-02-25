@@ -2,6 +2,7 @@ import React from "react";
 import UuidComponent from "./UuidComponent";
 import {mount} from "enzyme";
 import UuidValue from "./UuidValue";
+import Toolbar from "./Toolbar";
 
 describe("UuidComponent", () => {
     it("should render a UUID", () => {
@@ -24,15 +25,18 @@ describe("UuidComponent", () => {
     });
 
     it("should show an introduction message", () => {
-        const generateUuid = createGenerateUuidFunction();
-
-        const wrapper = mount(getComponentUnderTest(generateUuid));
+        const wrapper = mount(getComponentUnderTest());
         wrapper.update();
 
         expect(wrapper.find("span.uuid-container__label")).toHaveLength(1);
     });
 
-    function getComponentUnderTest(generateUrlFn) {
+    it("should display a Toolbar", () => {
+        const wrapper = mount(getComponentUnderTest());
+        expect(wrapper.find(Toolbar)).toHaveLength(1);
+    });
+
+    function getComponentUnderTest(generateUrlFn = createGenerateUuidFunction()) {
         return <UuidComponent generateUuid={generateUrlFn} />;
     }
 

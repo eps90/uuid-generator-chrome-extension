@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import UuidValue from "./UuidValue";
 
 import "./../styles/UuidComponent.scss";
+import Toolbar from "./Toolbar";
 
 export default class UuidComponent extends React.Component {
     static propTypes = {
@@ -23,6 +24,13 @@ export default class UuidComponent extends React.Component {
         });
     }
 
+    onRefresh() {
+        const uuid = this.props.generateUuid();
+        this.setState({
+            uuid
+        });
+    }
+
     render() {
         return (
             <div className="uuid-container">
@@ -30,6 +38,7 @@ export default class UuidComponent extends React.Component {
                     Your generated UUID value is:
                 </span>
                 <UuidValue uuid={this.state.uuid}/>
+                <Toolbar onRefresh={this.onRefresh.bind(this)}/>
             </div>
         );
     }
