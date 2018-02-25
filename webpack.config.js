@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
+const DotEnv = require("dotenv-webpack");
 
 const extractStyles = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
@@ -62,6 +63,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(dirsToCleanUp),
+        new DotEnv(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "src", "index.html")
         }),
