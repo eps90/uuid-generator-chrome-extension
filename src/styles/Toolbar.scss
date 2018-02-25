@@ -5,6 +5,7 @@ button.toolbar-button {
     border: none;
     color: $colorGreyDark;
     cursor: pointer;
+    outline: 0;
 
     &:hover {
         color: $colorGreyLight;
