@@ -3,6 +3,7 @@ import UuidComponent from "./UuidComponent";
 import {mount} from "enzyme";
 import UuidValue from "./UuidValue";
 import Toolbar from "./Toolbar";
+import ReactGa from "react-ga";
 
 describe("UuidComponent", () => {
     it("should render a UUID", () => {
@@ -34,6 +35,17 @@ describe("UuidComponent", () => {
     it("should display a Toolbar", () => {
         const wrapper = mount(getComponentUnderTest());
         expect(wrapper.find(Toolbar)).toHaveLength(1);
+    });
+    
+    it("should send an event when onRefresh is called", () => {
+        expect.assertions(1);
+
+        const wrapper = mount(getComponentUnderTest());
+
+        wrapper.instance().onRefresh();
+        expect(ReactGa.testModeAPI.calls).toContainEqual([
+            "send", {"eventAction": "REFRESH", "eventCategory": "UI", "hitType": "event"}
+        ]);
     });
 
     function getComponentUnderTest(generateUrlFn = createGenerateUuidFunction()) {

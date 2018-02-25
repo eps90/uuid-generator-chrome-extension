@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import UuidValue from "./UuidValue";
+import ReactGa from "react-ga";
 
 import "./../styles/UuidComponent.scss";
 import Toolbar from "./Toolbar";
+import {EVENT} from "../constants";
 
 export default class UuidComponent extends React.Component {
     static propTypes = {
@@ -23,6 +25,7 @@ export default class UuidComponent extends React.Component {
 
     onRefresh() {
         this.setUuidInState();
+        ReactGa.event(EVENT.REFRESH);
     }
 
     setUuidInState() {
