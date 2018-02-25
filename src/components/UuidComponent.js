@@ -18,13 +18,14 @@ export default class UuidComponent extends React.Component {
     }
 
     componentWillMount() {
-        const uuid = this.props.generateUuid();
-        this.setState({
-            uuid
-        });
+        this.setUuidInState();
     }
 
     onRefresh() {
+        this.setUuidInState();
+    }
+
+    setUuidInState() {
         const uuid = this.props.generateUuid();
         this.setState({
             uuid
