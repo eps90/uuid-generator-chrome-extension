@@ -39,7 +39,7 @@ export default class UuidComponent extends React.Component {
         return (
             <div className="uuid-container">
                 <span className="uuid-container__label">
-                    Your generated UUID value is:
+                    UUID v4:
                 </span>
                 <UuidValue uuid={this.state.uuid}/>
                 <Toolbar onRefresh={this.onRefresh.bind(this)}/>

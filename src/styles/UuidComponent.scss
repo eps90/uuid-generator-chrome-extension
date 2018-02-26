@@ -1,3 +1,6 @@
+@import "mixins";
+@import "variables";
+
 .uuid-container {
     width: 100%;
     text-align: center;
@@ -8,5 +11,8 @@
 
     &__label {
         display: block;
+        font-family: $titleFontFamily;
+        font-size: $largeFontSize;
+        @include comic-text-shadow(3px, 7px);
     }
 }

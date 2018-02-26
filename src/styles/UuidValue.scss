@@ -1,7 +1,10 @@
 @import "variables";
+@import "mixins";
 
 .uuid-value {
-    display: block;
+    @include comic-text-shadow(1px, 3px, $shadowColor);
+    display: inline-block;
+    font-weight: $boldWeight;
     font-family: $monoFontFamily;
     font-size: $bigFontSize;
     margin: $monoMargin;
