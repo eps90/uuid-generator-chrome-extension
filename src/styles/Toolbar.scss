@@ -1,13 +1,18 @@
 @import "variables";
+@import "_mixins.scss";
 
 button.toolbar-button {
-    background: none;
+    @include comic-text-shadow();
+    background-color: $colorBlack;
+    opacity: 0.5;
     border: none;
-    color: $colorGreyDark;
+    color: $colorGreyLight;
     cursor: pointer;
     outline: 0;
+    padding: 5px 7px;
+    border-radius: 3px;
 
     &:hover {
-        color: $colorGreyLight;
+        opacity: 1;
     }
 }

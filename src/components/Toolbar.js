@@ -6,7 +6,7 @@ import "./../styles/Toolbar.scss";
 
 const Toolbar = ({onRefresh}) => (
     <button className="toolbar-button toolbar-button--refresh" onClick={() => onRefresh()}>
-        <FontAwesomeIcon icon={faSyncAlt} />
+        <FontAwesomeIcon icon={faSyncAlt} fixedWidth/>
     </button>
 );
 
