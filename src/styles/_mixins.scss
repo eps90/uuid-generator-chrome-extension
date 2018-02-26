@@ -1,0 +1,9 @@
+@import "variables";
+
+@mixin comic-text-shadow($borderWidth: 1px, $dropShadow: 3px, $color: $shadowColor) {
+    text-shadow: #{$dropShadow} #{$dropShadow} 0 $color,
+    -#{$borderWidth} -#{$borderWidth} 0 $color,
+    #{$borderWidth} -#{$borderWidth} 0 $color,
+    -#{$borderWidth} #{$borderWidth} 0 $color,
+    #{$borderWidth} #{$borderWidth} 0 $color;
+}
