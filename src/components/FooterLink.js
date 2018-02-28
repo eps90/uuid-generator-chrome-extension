@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ReactGa from "react-ga";
+import {EVENT} from "../constants";
 
 function followLink(linkHref) {
+    ReactGa.event({...EVENT.LINK_CLICK, label: linkHref});
     window.chrome.tabs ? window.chrome.tabs.create({url: linkHref}) : document.location.href = linkHref;
 }
 

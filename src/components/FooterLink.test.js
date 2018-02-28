@@ -1,6 +1,7 @@
 import React from "react";
 import FooterLink from "./FooterLink";
 import {shallow} from "enzyme";
+import ReactGa from "react-ga";
 
 describe("FooterLink component", () => {
     beforeEach(() => {
@@ -40,6 +41,17 @@ describe("FooterLink component", () => {
         wrapper.find("a").simulate("click");
 
         expect(document.location.href).toEqual(linkHref);
+    });
+
+    it("should send an event to GA", () => {
+        const linkHref = "http://www.google.com";
+
+        const wrapper = shallow(getComponentUnderTest(linkHref));
+        wrapper.find("a").simulate("click");
+
+        expect(ReactGa.testModeAPI.calls).toContainEqual([
+            "send", {"eventAction": "CLICK", "eventCategory": "LINK", "eventLabel": linkHref, "hitType": "event"}
+        ]);
     });
 
     function getComponentUnderTest(link = "http://google.com", text="Google") {
