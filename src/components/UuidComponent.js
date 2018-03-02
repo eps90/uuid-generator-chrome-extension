@@ -42,7 +42,7 @@ export default class UuidComponent extends React.Component {
                     UUID v4:
                 </span>
                 <UuidValue uuid={this.state.uuid}/>
-                <Toolbar onRefresh={this.onRefresh.bind(this)}/>
+                <Toolbar onRefresh={this.onRefresh.bind(this)} uuid={this.state.uuid}/>
             </div>
         );
     }
