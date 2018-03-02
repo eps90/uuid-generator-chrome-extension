@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./../styles/UuidValue.scss";
+import "../../styles/UuidValue.scss";
 
 const UuidValue = ({uuid}) => (
     <span className="uuid-value">{uuid}</span>

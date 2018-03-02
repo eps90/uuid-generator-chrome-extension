@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactGa from "react-ga";
-import {EVENT} from "../constants";
+import {EVENT} from "../../constants";
 
 function followLink(linkHref) {
     ReactGa.event({...EVENT.LINK_CLICK, label: linkHref});

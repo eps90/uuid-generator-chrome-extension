@@ -2,7 +2,7 @@ import React from "react";
 import Toolbar from "./Toolbar";
 import {shallow} from "enzyme";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import Clipboard from "react-clipboard.js";
+import Clipboard from "../../../node_modules/react-clipboard.js/dist/react-clipboard";
 
 describe("Toolbar component", () => {
     it("should show refresh button", () => {

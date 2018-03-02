@@ -1,8 +1,8 @@
 import React from "react";
 import UuidComponent from "./UuidComponent";
 import {mount} from "enzyme";
-import UuidValue from "./UuidValue";
-import Toolbar from "./Toolbar";
+import UuidValue from "../UuidValue/UuidValue";
+import Toolbar from "../Toolbar/Toolbar";
 import ReactGa from "react-ga";
 
 describe("UuidComponent", () => {

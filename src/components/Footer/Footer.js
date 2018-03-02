@@ -1,6 +1,6 @@
 import React from "react";
-import "./../styles/Footer.scss";
-import FooterLink from "./FooterLink";
+import "../../styles/Footer.scss";
+import FooterLink from "../FooterLink/FooterLink";
 
 const Footer = () => (
     <footer className="footer">

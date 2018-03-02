@@ -1,9 +1,9 @@
 import React from "react";
-import UuidComponent from "./UuidComponent";
-import generateUuid from "../uuid/generateUuid";
+import UuidComponent from "../UuidComponent/UuidComponent";
+import generateUuid from "../../uuid/generateUuid";
 
-import "./../styles/App.scss";
-import Footer from "./Footer";
+import "../../styles/App.scss";
+import Footer from "../Footer/Footer";
 
 const App = () => {
     return (
