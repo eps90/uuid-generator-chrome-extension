@@ -29,6 +29,7 @@ module.exports = {
             "@fortawesome/fontawesome",
             "@fortawesome/fontawesome-free-solid",
             "@fortawesome/react-fontawesome",
+            "react-clipboard.js"
         ]
     },
     output: {
