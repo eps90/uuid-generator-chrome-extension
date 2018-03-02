@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import UuidValue from "../UuidValue/UuidValue";
 import ReactGa from "react-ga";
-import "../../styles/UuidComponent.scss";
+import "./UuidComponent.scss";
 import Toolbar from "../Toolbar/Toolbar";
 import {EVENT} from "../../constants";
 

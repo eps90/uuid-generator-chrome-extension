@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/Footer.scss";
+import "./Footer.scss";
 import FooterLink from "../FooterLink/FooterLink";
 
 const Footer = () => (

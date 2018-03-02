@@ -2,7 +2,7 @@ import React from "react";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import {faSyncAlt, faCopy} from "@fortawesome/fontawesome-free-solid";
 import PropTypes from "prop-types";
-import "../../styles/Toolbar.scss";
+import "./Toolbar.scss";
 import Clipboard from "react-clipboard.js";
 
 const Toolbar = ({onRefresh, uuid}) => (
