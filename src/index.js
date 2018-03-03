@@ -7,7 +7,7 @@ import App from "./components/App/App";
 import ReactGa from "react-ga";
 
 const analyticsKey = process.env.GOOGLE_ANALYTICS_KEY || null;
-ReactGa.initialize(analyticsKey, {debug: true});
+ReactGa.initialize(analyticsKey, {debug: process.env.NODE_ENV !== "production"});
 ReactGa.pageview("/");
 
 ReactDOM.render(
