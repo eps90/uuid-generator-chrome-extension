@@ -26,6 +26,10 @@ jobs:
           command: yarn test
 
       - run:
+          name: "Generate .env file"
+          command: "./scripts/generateEnvFile.sh"
+
+      - run:
           name: "Building extension"
           command: yarn build:prod
 
