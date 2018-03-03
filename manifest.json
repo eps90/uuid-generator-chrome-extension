@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "description": "Easily generate UUID",
   "author": "Jakub Turek <ja@kubaturek.pl>",
-  "offline_enabled": true,
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
@@ -18,9 +17,5 @@
     },
     "default_popup": "index.html"
   },
-  "permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }
