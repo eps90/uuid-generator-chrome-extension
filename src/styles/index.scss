@@ -1,6 +1,7 @@
+@import "variables";
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One|Roboto+Mono:400,700');
 
 body {
-    min-height: 300px;
-    min-width: 800px;
+    min-height: $contentHeight;
+    min-width: $contentWidth;
 }
