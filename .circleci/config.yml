@@ -21,4 +21,48 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn test
+      - run:
+          name: "Running tests"
+          command: yarn test
+
+      - run:
+          name: "Building extension"
+          command: yarn build:prod
+
+      - store_artifacts:
+          path: build
+          destination: ext
+
+      - persist_to_workspace:
+          root: ~/uuid-generator/build
+          paths:
+            - uuid_generator.zip
+
+  publish:
+    docker:
+      - image: cibuilds/chrome-extension:latest
+
+    steps:
+      - attach_workspace:
+          at: ~/uuid-generator/build
+
+      - run:
+          name: "Publishing to the Google Chrome Store"
+          command: publish ~/uuid-generator/build/uuid_generator.zip
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
