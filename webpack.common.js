@@ -4,8 +4,8 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const ZipPlugin = require("zip-webpack-plugin");
 const DotEnv = require("dotenv-webpack");
+
 
 const extractStyles = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
@@ -17,6 +17,7 @@ const filesToCopy = [
     "manifest.json",
     {from: "img/*", flatten: true}
 ];
+
 
 module.exports = {
     entry: {
@@ -72,11 +73,6 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor"
         }),
-        new CopyWebpackPlugin(filesToCopy),
-        new ZipPlugin({
-            path: path.resolve(__dirname, "build"),
-            filename: "uuid_generator.zip"
-        })
-    ],
-    devtool: "source-map"
+        new CopyWebpackPlugin(filesToCopy)
+    ]
 };
