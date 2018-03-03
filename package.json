@@ -6,10 +6,10 @@
   "author": "Jakub Turek <ja@kubaturek.pl>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "test": "jest",
     "lint": "eslint .",
-    "build:prod": "webpack -p"
+    "build:prod": "webpack -p --config webpack.prod.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
