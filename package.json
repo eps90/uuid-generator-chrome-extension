@@ -33,6 +33,7 @@
     "jest": "^22.4.2",
     "jest-enzyme": "^4.2.0",
     "node-sass": "^4.7.2",
+    "react-tippy": "^1.2.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
     "webpack": "^3.11.0",
