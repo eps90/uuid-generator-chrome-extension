@@ -4,15 +4,20 @@ import {faSyncAlt, faCopy} from "@fortawesome/fontawesome-free-solid";
 import PropTypes from "prop-types";
 import "./Toolbar.scss";
 import Clipboard from "react-clipboard.js";
+import {Tooltip} from "react-tippy";
 
 const Toolbar = ({onRefresh, uuid}) => (
     <div className="toolbar">
-        <button className="toolbar-button toolbar-button--refresh" onClick={() => onRefresh()}>
-            <FontAwesomeIcon icon={faSyncAlt} fixedWidth/>
-        </button>
-        <Clipboard data-clipboard-text={uuid} className="toolbar-button toolbar-button--copy">
-            <FontAwesomeIcon icon={faCopy} fixedWidth/>
-        </Clipboard>
+        <Tooltip title="Refresh">
+            <button className="toolbar-button toolbar-button--refresh" onClick={() => onRefresh()}>
+                <FontAwesomeIcon icon={faSyncAlt} fixedWidth/>
+            </button>
+        </Tooltip>
+        <Tooltip title="Copy">
+            <Clipboard data-clipboard-text={uuid} className="toolbar-button toolbar-button--copy">
+                <FontAwesomeIcon icon={faCopy} fixedWidth/>
+            </Clipboard>
+        </Tooltip>
     </div>
 );
 

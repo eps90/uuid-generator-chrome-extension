@@ -1,4 +1,5 @@
 import "normalize.css/normalize.css";
+import "react-tippy/dist/tippy.css";
 import "./styles/index.scss";
 
 import React from "react";
