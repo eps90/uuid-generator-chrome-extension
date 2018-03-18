@@ -13,17 +13,42 @@ export default class Toolbar extends React.Component {
         uuid: PropTypes.string.isRequired
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            copyText: "Copy"
+        };
+    }
+
+    onCopy() {
+        this.changeCopyText();
+        this.props.onCopy();
+    }
+
+    changeCopyText() {
+        this.setState({
+            copyText: "Copied!"
+        });
+
+    }
+
+    resetCopyText() {
+        this.setState({
+            copyText: "Copy"
+        });
+    }
+
     render() {
         return (
             <div className="toolbar">
-                <Tooltip title="Refresh">
+                <Tooltip title="Re-generate">
                     <button className="toolbar-button toolbar-button--refresh" onClick={() => this.props.onRefresh()}>
                         <FontAwesomeIcon icon={faSyncAlt} fixedWidth/>
                     </button>
                 </Tooltip>
-                <Tooltip title="Copy">
+                <Tooltip html={this.state.copyText} hideOnClick={false} onHidden={this.resetCopyText.bind(this)}>
                     <Clipboard data-clipboard-text={this.props.uuid} className="toolbar-button toolbar-button--copy"
-                        onClick={() => this.props.onCopy()}>
+                        onClick={() => this.onCopy()}>
                         <FontAwesomeIcon icon={faCopy} fixedWidth/>
                     </Clipboard>
                 </Tooltip>
