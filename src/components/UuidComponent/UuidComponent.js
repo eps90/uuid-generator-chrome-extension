@@ -27,6 +27,10 @@ export default class UuidComponent extends React.Component {
         ReactGa.event(EVENT.REFRESH);
     }
 
+    onCopy() {
+        ReactGa.event(EVENT.COPY);
+    }
+
     setUuidInState() {
         const uuid = this.props.generateUuid();
         this.setState({
@@ -41,7 +45,7 @@ export default class UuidComponent extends React.Component {
                     UUID v4:
                 </span>
                 <UuidValue uuid={this.state.uuid}/>
-                <Toolbar onRefresh={this.onRefresh.bind(this)} uuid={this.state.uuid}/>
+                <Toolbar onCopy={this.onCopy.bind(this)} onRefresh={this.onRefresh.bind(this)} uuid={this.state.uuid}/>
             </div>
         );
     }

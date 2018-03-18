@@ -48,6 +48,17 @@ describe("UuidComponent", () => {
         ]);
     });
 
+    it("should send an event when onCopy is called", () => {
+        expect.assertions(1);
+
+        const wrapper = mount(getComponentUnderTest());
+        wrapper.instance().onCopy();
+
+        expect(ReactGa.testModeAPI.calls).toContainEqual([
+            "send", {"eventAction": "COPY", "eventCategory": "UI", "hitType": "event"}
+        ]);
+    });
+
     function getComponentUnderTest(generateUrlFn = createGenerateUuidFunction()) {
         return <UuidComponent generateUuid={generateUrlFn} />;
     }

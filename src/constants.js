@@ -6,5 +6,9 @@ export const EVENT = {
     LINK_CLICK: {
         category: "LINK",
         action: "CLICK",
+    },
+    COPY: {
+        category: "UI",
+        action: "COPY"
     }
 };
