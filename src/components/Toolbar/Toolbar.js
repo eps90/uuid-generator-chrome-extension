@@ -6,7 +6,7 @@ import "./Toolbar.scss";
 import Clipboard from "react-clipboard.js";
 import {Tooltip} from "react-tippy";
 
-const Toolbar = ({onRefresh, uuid}) => (
+const Toolbar = ({onRefresh, onCopy, uuid}) => (
     <div className="toolbar">
         <Tooltip title="Refresh">
             <button className="toolbar-button toolbar-button--refresh" onClick={() => onRefresh()}>
@@ -14,7 +14,7 @@ const Toolbar = ({onRefresh, uuid}) => (
             </button>
         </Tooltip>
         <Tooltip title="Copy">
-            <Clipboard data-clipboard-text={uuid} className="toolbar-button toolbar-button--copy">
+            <Clipboard data-clipboard-text={uuid} className="toolbar-button toolbar-button--copy" onClick={() => onCopy()}>
                 <FontAwesomeIcon icon={faCopy} fixedWidth/>
             </Clipboard>
         </Tooltip>
@@ -23,6 +23,7 @@ const Toolbar = ({onRefresh, uuid}) => (
 
 Toolbar.propTypes = {
     onRefresh: PropTypes.func.isRequired,
+    onCopy: PropTypes.func.isRequired,
     uuid: PropTypes.string.isRequired
 };
 
