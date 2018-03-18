@@ -9,7 +9,8 @@
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "test": "jest",
     "lint": "eslint .",
-    "build:prod": "webpack -p --config webpack.prod.js"
+    "build:prod": "webpack -p --config webpack.prod.js",
+    "build:dev": "webpack --config webpack.dev.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
