@@ -6,25 +6,28 @@ import "./Toolbar.scss";
 import Clipboard from "react-clipboard.js";
 import {Tooltip} from "react-tippy";
 
-const Toolbar = ({onRefresh, onCopy, uuid}) => (
-    <div className="toolbar">
-        <Tooltip title="Refresh">
-            <button className="toolbar-button toolbar-button--refresh" onClick={() => onRefresh()}>
-                <FontAwesomeIcon icon={faSyncAlt} fixedWidth/>
-            </button>
-        </Tooltip>
-        <Tooltip title="Copy">
-            <Clipboard data-clipboard-text={uuid} className="toolbar-button toolbar-button--copy" onClick={() => onCopy()}>
-                <FontAwesomeIcon icon={faCopy} fixedWidth/>
-            </Clipboard>
-        </Tooltip>
-    </div>
-);
+export default class Toolbar extends React.Component {
+    static propTypes = {
+        onRefresh: PropTypes.func.isRequired,
+        onCopy: PropTypes.func.isRequired,
+        uuid: PropTypes.string.isRequired
+    };
 
-Toolbar.propTypes = {
-    onRefresh: PropTypes.func.isRequired,
-    onCopy: PropTypes.func.isRequired,
-    uuid: PropTypes.string.isRequired
-};
-
-export default Toolbar;
+    render() {
+        return (
+            <div className="toolbar">
+                <Tooltip title="Refresh">
+                    <button className="toolbar-button toolbar-button--refresh" onClick={() => this.props.onRefresh()}>
+                        <FontAwesomeIcon icon={faSyncAlt} fixedWidth/>
+                    </button>
+                </Tooltip>
+                <Tooltip title="Copy">
+                    <Clipboard data-clipboard-text={this.props.uuid} className="toolbar-button toolbar-button--copy"
+                        onClick={() => this.props.onCopy()}>
+                        <FontAwesomeIcon icon={faCopy} fixedWidth/>
+                    </Clipboard>
+                </Tooltip>
+            </div>
+        );
+    }
+}
