@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./UuidValue.scss";
 
 const UuidValue = ({uuid}) => (
-    <span className="uuid-value">{uuid}</span>
+    <input type="text" readOnly className="uuid-value" value={uuid} />
 );
 UuidValue.propTypes = {
     uuid: PropTypes.string.isRequired

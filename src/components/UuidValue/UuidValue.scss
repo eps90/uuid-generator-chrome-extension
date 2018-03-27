@@ -7,5 +7,9 @@
     font-weight: $boldWeight;
     font-family: $monoFontFamily;
     font-size: $defaultFontSize;
-    margin: $monoMargin;
+    color: $colorWhite;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    width: 100%;
 }

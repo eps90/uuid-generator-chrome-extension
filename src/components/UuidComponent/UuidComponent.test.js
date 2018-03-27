@@ -22,7 +22,7 @@ describe("UuidComponent", () => {
         wrapper.update();
 
         expect(wrapper.find(UuidValue)).toHaveLength(1);
-        expect(wrapper.find(UuidValue).first().text()).toEqual(generatedValue);
+        expect(wrapper.find(UuidValue).prop("uuid")).toEqual(generatedValue);
     });
 
     it("should display a Toolbar", () => {
