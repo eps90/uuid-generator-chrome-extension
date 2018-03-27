@@ -4,13 +4,17 @@ import generateUuid from "../../uuid/generateUuid";
 
 import "./App.scss";
 import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
 const App = () => {
     return (
-        <div className="content">
-            <UuidComponent generateUuid={generateUuid}/>
+        <React.Fragment>
+            <Header/>
+            <div className="content">
+                <UuidComponent generateUuid={generateUuid}/>
+            </div>
             <Footer />
-        </div>
+        </React.Fragment>
     );
 };
 
