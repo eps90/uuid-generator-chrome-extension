@@ -25,13 +25,6 @@ describe("UuidComponent", () => {
         expect(wrapper.find(UuidValue).first().text()).toEqual(generatedValue);
     });
 
-    it("should show an introduction message", () => {
-        const wrapper = mount(getComponentUnderTest());
-        wrapper.update();
-
-        expect(wrapper.find("span.uuid-container__label")).toHaveLength(1);
-    });
-
     it("should display a Toolbar", () => {
         const wrapper = mount(getComponentUnderTest());
         expect(wrapper.find(Toolbar)).toHaveLength(1);
