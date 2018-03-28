@@ -1,21 +1,41 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 
-.uuid-value {
-    @include comic-text-shadow(1px, 3px, $shadowColor);
-    display: inline-block;
-    font-weight: $boldWeight;
-    font-family: $monoFontFamily;
-    font-size: $defaultFontSize;
-    color: $colorWhite;
-    background-color: transparent;
-    border: none;
-    text-align: center;
-    width: 90%;
-    padding: $uuidPadding;
+.uuid {
+    &__value {
+        @include comic-text-shadow(1px, 3px, $shadowColor);
+        display: inline-block;
+        font-weight: $boldWeight;
+        font-family: $monoFontFamily;
+        font-size: $defaultFontSize;
+        color: $colorWhite;
+        background-color: transparent;
+        border: none;
+        text-align: center;
+        padding: $uuidPadding;
 
-    &:hover {
-        background-color: $colorBlueVeryLight;
+        &:hover {
+            background-color: $colorBlueVeryLight;
+            cursor: pointer;
+        }
+    }
+
+    &__toolbar-button {
+        color: $colorWhite;
+        background-color: $colorBlueDark;
+        border: none;
+        font-size: $midFontSize;
+        padding: 3px 5px;
+        border-radius: 3px;
         cursor: pointer;
+        vertical-align: middle;
+
+        &:hover {
+            background-color: $colorBlueDarkABit;
+        }
+
+        &:focus {
+            outline: none;
+        }
     }
 }
