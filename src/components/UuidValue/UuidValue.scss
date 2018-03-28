@@ -33,12 +33,16 @@
         cursor: pointer;
         vertical-align: middle;
 
-        &:hover {
+        &:hover:not(&--checked) {
             background-color: $colorBlueDarkABit;
         }
 
         &:focus {
             outline: none;
+        }
+
+        &--checked {
+            background-color: $colorGreen;
         }
     }
 }
