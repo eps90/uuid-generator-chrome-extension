@@ -25,7 +25,7 @@
 
     &__toolbar-button {
         color: $colorWhite;
-        background-color: $colorBlueDark;
+        background-color: $colorBlueDarkABit;
         border: none;
         font-size: $midFontSize;
         padding: 3px 5px;
@@ -34,7 +34,7 @@
         vertical-align: middle;
 
         &:hover:not(&--checked) {
-            background-color: $colorBlueDarkABit;
+            background-color: $colorBlueDark;
         }
 
         &:focus {

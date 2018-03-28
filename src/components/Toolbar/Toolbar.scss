@@ -3,7 +3,7 @@
 
 .toolbar-button {
     color: $colorWhite;
-    background-color: $colorBlueDark;
+    background-color: $colorBlueDarkABit;
     border: none;
     font-size: $midFontSize;
     padding: 8px 10px;
@@ -13,7 +13,7 @@
     font-weight: 400;
 
     &:hover {
-        background-color: $colorBlueDarkABit;
+        background-color: $colorBlueDark;
     }
 
     &:focus {
