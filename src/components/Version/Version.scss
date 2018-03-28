@@ -1,0 +1,8 @@
+@import "./../../styles/variables";;
+
+.app-version {
+    float: right;
+    vertical-align: middle;
+    color: $colorGreyDark;
+    line-height: 1.5rem;
+}

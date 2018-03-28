@@ -18,6 +18,10 @@ const filesToCopy = [
     {from: "img/*", flatten: true}
 ];
 
+const getAppVersion = () => {
+    const manifest = require(path.join(__dirname, "manifest.json"));
+    return manifest.version;
+};
 
 module.exports = {
     entry: {
@@ -73,6 +77,10 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor"
         }),
-        new CopyWebpackPlugin(filesToCopy)
+        new CopyWebpackPlugin(filesToCopy),
+        new webpack.DefinePlugin({
+            "process.env.NODE_ENV": JSON.stringify("production"),
+            "process.env.APP_VERSION": JSON.stringify(getAppVersion())
+        }),
     ]
 };
