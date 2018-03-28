@@ -21,24 +21,6 @@ describe("Toolbar component", () => {
         expect(onRefresh).toHaveBeenCalled();
     });
 
-    xit("should show copy button", () => {
-        const uuid = "b813b672-f1d8-4b37-98db-9dd750393bbf";
-        const wrapper = shallow(getComponentUnderTest({uuid}));
-
-        expect(wrapper.find(Clipboard)).toHaveLength(1);
-        expect(wrapper.findWhere(n => n.is(FontAwesomeIcon) && n.prop("icon").iconName === "copy")).toHaveLength(1);
-    });
-
-    xit("should call onCopy function on successful copy", () => {
-        const onCopy = jest.fn();
-        const wrapper = mount(getComponentUnderTest({onCopy}));
-        wrapper.update();
-
-        wrapper.find("button.toolbar-button--copy").simulate("click");
-
-        expect(onCopy).toHaveBeenCalled();
-    });
-
     function getComponentUnderTest(properties = {}) {
         const {
             onRefresh = jest.fn(),
