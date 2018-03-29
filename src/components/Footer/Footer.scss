@@ -2,7 +2,6 @@
 @import "../../styles/mixins";
 
 .footer {
-    @include comic-text-shadow(1px, 1px);
     position: fixed;
     width: 100%;
     left: 0;
@@ -11,6 +10,8 @@
     font-family: $footerFontFamily;
     font-size: $smallFontSize;
     padding: $footerPadding;
+    background-color: $colorBlueVeryLight;
+    font-weight: 700;
 
     &__text {
         color: $defaultFontColor;
