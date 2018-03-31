@@ -1,0 +1,9 @@
+version: '3'
+services:
+  node:
+    image: "node:9"
+    user: "node"
+    working_dir: /home/node/uuid-generator
+    volumes:
+      - .:/home/node/uuid-generator
+    command: "yarn build:dev --watch"
