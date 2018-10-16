@@ -64,6 +64,15 @@ module.exports = {
                     ],
                     fallback: "style-loader"
                 })
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: "url-loader",
+                    options: {
+                        limit: 1000000
+                    }
+                }]
             }
         ]
     },

@@ -1,5 +1,26 @@
+@font-face {
+    font-family: "Bowlby One";
+    src: url("./fonts/bowlby_one_regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    src: url("./fonts/roboto_mono_bold.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/roboto_regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/roboto_bold.ttf");
+    font-weight: 700;
+}
+
 @import "variables";
-@import url('https://fonts.googleapis.com/css?family=Bowlby+One|Roboto+Mono:700|Roboto:400,700');
 
 body {
     min-height: $contentHeight;
