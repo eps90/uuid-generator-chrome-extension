@@ -1,10 +1,10 @@
 import React from "react";
 import Footer from "./Footer";
-import {shallow} from "enzyme";
+import {render} from "@testing-library/react";
 
 describe("Footer component", () => {
     it("should display a text", () => {
-        const wrapper = shallow(<Footer />);
-        expect(wrapper.text()).toBeDefined();
+        const {getByText} = render(<Footer />);
+        expect(getByText(/Created by/)).toBeInTheDocument();
     });
 });

@@ -1,38 +1,34 @@
 import React from "react";
 import UuidValue from "./UuidValue";
-import {shallow, mount} from "enzyme";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome/index";
-import Clipboard from "react-clipboard.js";
+import {fireEvent, render} from "@testing-library/react";
 
 describe("UuidValue component", () => {
     it("should render an input", () => {
-        const wrapper = shallow(createComponentUnderTest());
+        const {getByRole} = render(createComponentUnderTest());
 
-        expect(wrapper.find("input")).toHaveLength(1);
+        expect(getByRole("textbox")).toBeInTheDocument();
     });
 
     it("should show passed-in value", () => {
         const uuid = "79da067a-c95f-47b7-8e2f-c50833fc1652";
-        const wrapper = shallow(createComponentUnderTest({uuid}));
+        const {getByRole} = render(createComponentUnderTest({uuid}));
 
-        expect(wrapper.find("input").first().prop("value")).toEqual(uuid);
+        expect(getByRole("textbox")).toHaveValue(uuid);
     });
 
     describe("Toolbar", () => {
         it("should show copy button", () => {
             const uuid = "b813b672-f1d8-4b37-98db-9dd750393bbf";
-            const wrapper = shallow(createComponentUnderTest({uuid}));
+            const {getByTitle} = render(createComponentUnderTest({uuid}));
 
-            expect(wrapper.find(Clipboard)).toHaveLength(1);
-            expect(wrapper.findWhere(n => n.is(FontAwesomeIcon) && n.prop("icon").iconName === "copy")).toHaveLength(1);
+            expect(getByTitle("Copy")).toBeInTheDocument();
         });
 
         it("should call onCopy function on successful copy", () => {
             const onCopy = jest.fn();
-            const wrapper = mount(createComponentUnderTest({onCopy}));
-            wrapper.update();
+            const {getByTitle} = render(createComponentUnderTest({onCopy}));
 
-            wrapper.find("button.uuid__toolbar-button").simulate("click");
+            fireEvent.click(getByTitle("Copy"));
 
             expect(onCopy).toHaveBeenCalled();
         });

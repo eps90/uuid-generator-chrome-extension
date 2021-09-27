@@ -53,7 +53,7 @@ export default class UuidValue extends React.Component {
             <div className="uuid">
                 <input type="text" size="37" readOnly className="uuid__value" value={this.props.uuid} onFocus={handleFocus} />
                 <Clipboard data-clipboard-text={this.props.uuid} className={this.getButtonClassNames()}
-                    onClick={this.handleClick.bind(this)}>
+                    onClick={this.handleClick.bind(this)} button-title="Copy">
                     <FontAwesomeIcon icon={this.getIcon()} fixedWidth/>
                 </Clipboard>
             </div>

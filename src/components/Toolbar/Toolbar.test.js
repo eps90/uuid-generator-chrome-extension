@@ -1,22 +1,18 @@
 import React from "react";
 import Toolbar from "./Toolbar";
-import {mount, shallow} from "enzyme";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import Clipboard from "../../../node_modules/react-clipboard.js/dist/react-clipboard";
+import {fireEvent, render} from "@testing-library/react";
 
 describe("Toolbar component", () => {
     it("should show refresh button", () => {
-        const wrapper = shallow(getComponentUnderTest());
-        expect(wrapper.find("button.toolbar-button--refresh")).toHaveLength(1);
-        expect(wrapper.findWhere(n => n.is(FontAwesomeIcon) && n.prop("icon").iconName === "sync-alt")).toHaveLength(1);
+        const {getByRole} = render(getComponentUnderTest());
+        expect(getByRole("button")).toBeInTheDocument();
     });
 
     it("should call onRefresh function on click", () => {
         const onRefresh = jest.fn();
-        const wrapper = shallow(getComponentUnderTest({onRefresh}));
-        wrapper.update();
+        const {getByRole} = render(getComponentUnderTest({onRefresh}));
 
-        wrapper.find("button.toolbar-button--refresh").simulate("click");
+        fireEvent.click(getByRole("button"))
 
         expect(onRefresh).toHaveBeenCalled();
     });
