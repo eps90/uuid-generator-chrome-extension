@@ -6,16 +6,16 @@ import "./App.scss";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
-const App = () => {
+function App() {
     return (
-        <React.Fragment>
+        <>
             <Header/>
             <div className="content">
                 <UuidComponent generateUuid={generateUuid}/>
             </div>
             <Footer />
-        </React.Fragment>
+        </>
     );
-};
+}
 
 export default App;

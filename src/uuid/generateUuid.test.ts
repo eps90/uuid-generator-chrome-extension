@@ -6,7 +6,7 @@ describe("generateUuid function", () => {
         expect(generateUuid()).toEqual(returnValue);
     });
 
-    function getFunctionUnderTest(generatedValue) {
+    function getFunctionUnderTest(generatedValue: string) {
         jest.doMock("uuid/v4", () => {
             return () => generatedValue;
         });

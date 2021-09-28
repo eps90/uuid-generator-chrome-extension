@@ -6,6 +6,7 @@ import {fireEvent, render} from "@testing-library/react";
 describe("FooterLink component", () => {
     beforeEach(() => {
         window.chrome = {
+            // @ts-ignore
             tabs: {
                 create: jest.fn()
             }
@@ -33,6 +34,7 @@ describe("FooterLink component", () => {
     });
 
     it("should follow link normally as a fallback", () => {
+        // @ts-ignore
         window.chrome.tabs = undefined;
 
         const linkHref = "http://localhost/";

@@ -34,7 +34,7 @@ describe("UuidValue component", () => {
         });
     });
 
-    function createComponentUnderTest(properties = {}) {
+    function createComponentUnderTest(properties: any = {}) {
         const {
             uuid = "82660ed3-d567-49b7-82fe-d40d08ae53f9",
             onCopy = jest.fn()

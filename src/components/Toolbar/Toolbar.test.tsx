@@ -17,12 +17,10 @@ describe("Toolbar component", () => {
         expect(onRefresh).toHaveBeenCalled();
     });
 
-    function getComponentUnderTest(properties = {}) {
+    function getComponentUnderTest(properties: any = {}) {
         const {
-            onRefresh = jest.fn(),
-            onCopy = jest.fn(),
-            uuid = "b55fcf6c-21e7-45c7-bbe0-1261f0a30ee2"
+            onRefresh = jest.fn()
         } = properties;
-        return <Toolbar onRefresh={onRefresh} uuid={uuid} onCopy={onCopy} />;
+        return <Toolbar onRefresh={onRefresh} />;
     }
 });

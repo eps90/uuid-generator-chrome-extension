@@ -1,9 +1,10 @@
 import ReactGa from "react-ga";
 
 const debugMode = process.env.NODE_ENV !== "production";
-const analyticsKey = process.env.GOOGLE_ANALYTICS_KEY || null;
+const analyticsKey = process.env.GOOGLE_ANALYTICS_KEY || "";
 
 if (debugMode) {
+    // @ts-ignore
     window.ga_debug = {trace: true};
 }
 
