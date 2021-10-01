@@ -10,7 +10,7 @@ interface Props {
 function Toolbar({onRefresh}: Props) {
     return (
         <div className="toolbar">
-            <button className="toolbar-button toolbar-button--refresh" onClick={() => onRefresh()}>
+            <button className="toolbar-button toolbar-button--refresh" onClick={() => onRefresh()} data-cy="refresh-uuid">
                 <FontAwesomeIcon icon={faSyncAlt} fixedWidth/>
                 <span className="toolbar-button__label">Create new!</span>
             </button>

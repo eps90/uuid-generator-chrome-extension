@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Clipboard from "react-clipboard.js";
 import "./UuidValue.scss";
 import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 import {faCheck} from "@fortawesome/free-solid-svg-icons";
@@ -19,8 +18,10 @@ function UuidValue({uuid, onCopy}: Props) {
     const [copiedUuid, setCopiedUuid] = useState<string>();
 
     const handleCopy = () => {
-        onCopy();
-        setCopiedUuid(uuid);
+        window.navigator.clipboard.writeText(uuid).then(() => {
+            onCopy();
+            setCopiedUuid(uuid);
+        });
     };
 
     const getIcon = (): IconDefinition => {
@@ -38,11 +39,10 @@ function UuidValue({uuid, onCopy}: Props) {
 
     return (
         <div className="uuid">
-            <input type="text" size={37} readOnly className="uuid__value" value={uuid} onFocus={handleFocus} />
-            <Clipboard data-clipboard-text={uuid} className={getButtonClassNames()}
-                       onClick={handleCopy} button-title="Copy">
+            <input type="text" size={37} readOnly className="uuid__value" value={uuid} onFocus={handleFocus} data-cy="uuid-value" />
+            <button className={getButtonClassNames()} onClick={handleCopy} title="Copy" data-cy="uuid-copy-btn">
                 <FontAwesomeIcon icon={getIcon()} fixedWidth/>
-            </Clipboard>
+            </button>
         </div>
     );
 }
