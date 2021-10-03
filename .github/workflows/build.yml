@@ -21,3 +21,5 @@ jobs:
         with:
           start: npm start
           wait-on: 'http://localhost:3000'
+        env:
+          BROWSER: none
