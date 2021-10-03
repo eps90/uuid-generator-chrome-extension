@@ -1,6 +1,7 @@
 import React from "react";
 import UuidValue from "./UuidValue";
-import {fireEvent, render} from "@testing-library/react";
+import {fireEvent, render, waitFor} from "@testing-library/react";
+import {act} from "react-dom/test-utils";
 
 describe("UuidValue component", () => {
     it("should render an input", () => {
@@ -24,13 +25,13 @@ describe("UuidValue component", () => {
             expect(getByTitle("Copy")).toBeInTheDocument();
         });
 
-        it("should call onCopy function on successful copy", () => {
+        it("should call onCopy function on successful copy", async () => {
             const onCopy = jest.fn();
             const {getByTitle} = render(createComponentUnderTest({onCopy}));
-
-            fireEvent.click(getByTitle("Copy"));
-
-            expect(onCopy).toHaveBeenCalled();
+            act(() => {
+                fireEvent.click(getByTitle("Copy"));
+            })
+            await waitFor(() => expect(onCopy).toHaveBeenCalled());
         });
     });
 

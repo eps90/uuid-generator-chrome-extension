@@ -17,11 +17,10 @@ interface Props {
 function UuidValue({uuid, onCopy}: Props) {
     const [copiedUuid, setCopiedUuid] = useState<string>();
 
-    const handleCopy = () => {
-        window.navigator.clipboard.writeText(uuid).then(() => {
-            onCopy();
-            setCopiedUuid(uuid);
-        });
+    const handleCopy = async () => {
+        await window.navigator.clipboard.writeText(uuid);
+        setCopiedUuid(uuid);
+        onCopy();
     };
 
     const getIcon = (): IconDefinition => {
