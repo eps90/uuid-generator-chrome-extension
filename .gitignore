@@ -4,5 +4,5 @@
 /dist
 /coverage
 /build
-/.env
-/yarn-error.log
+/.env.local
+/cypress/videos
