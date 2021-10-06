@@ -25,9 +25,9 @@ jobs:
           BROWSER: none
   pack:
     runs-on: ubuntu-latest
-    needs:
-      - build
-      - e2e
+#    needs:
+#      - build
+#      - e2e
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -41,7 +41,8 @@ jobs:
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r main.zip build
-      - uses: Klemensas/chrome-extension-upload-action@1.4.1
+      - name: Chrome Extension upload & publish
+        uses: Passiverecords/chrome-extension-upload-action@1.4.1
         with:
           refresh-token: ${{ secrets.REFRESH_TOKEN }}
           client-id: ${{ secrets.CLIENT_ID }}
