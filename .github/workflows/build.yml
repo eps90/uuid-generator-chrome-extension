@@ -41,6 +41,8 @@ jobs:
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r main.zip build
+      - name: List files
+        run: ls -la
       - name: Chrome Extension upload & publish
         uses: Passiverecords/chrome-extension-upload-action@1.4.1
         with:
