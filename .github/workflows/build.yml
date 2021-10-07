@@ -34,10 +34,18 @@ jobs:
         with:
           cache: npm
       - run: npm install
+      - name: Parse version
+        uses: sergeysova/jq-action@v2
+        id: ext_version
+        with:
+          cmd: jq .version package.json -r
+      - run: 'echo "Version to be set: ${{ steps.ext_version.outputs.value }}'
       - run: npm run-script build
         env:
           GENERATE_SOURCEMAP: false
           INLINE_RUNTIME_CHUNK: false
+          REACT_APP_APP_VERSION: ${{ steps.ext_version.outputs.value }}
+          REACT_APP_GOOGLE_ANALYTICS_KEY: ${{ secrets.GA_KEY }}
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r main.zip build
