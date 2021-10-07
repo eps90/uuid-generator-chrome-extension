@@ -39,7 +39,7 @@ jobs:
         id: ext_version
         with:
           cmd: jq .version package.json -r
-      - run: 'echo "Version to be set: ${{ steps.ext_version.outputs.value }}'
+      - run: 'echo "Version to be set: ${{ steps.ext_version.outputs.value }}"'
       - run: npm run-script build
         env:
           GENERATE_SOURCEMAP: false
