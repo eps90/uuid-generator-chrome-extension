@@ -43,4 +43,4 @@ jobs:
           client-secret: ${{ secrets.CLIENT_SECRET }}
           file-name: 'main.zip'
           app-id: ${{ secrets.EXTENSION_ID }}
-          publish: false
+          publish: true
