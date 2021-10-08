@@ -1,31 +1,12 @@
-name: UUID Chrome Extension build
-on: [push, pull_request]
+name: Deployment
+on:
+  push: ~
+  release:
+    types:
+      - published
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          cache: npm
-      - run: npm install
-        name: Install dependencies
-      - run: npm test
-        name: Run unit tests
-  e2e:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v2
-        name: Integration tests
-        with:
-          start: npm start
-          wait-on: 'http://localhost:3000'
-        env:
-          BROWSER: none
+  test:
+    uses: eps90/uuid-generator-chrome-extension/.github/workflows/test.yml@master
   pack:
     runs-on: ubuntu-latest
     steps:

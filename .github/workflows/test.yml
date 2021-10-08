@@ -1,0 +1,28 @@
+name: Build
+on: [push, pull_request, workflow_call]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          cache: npm
+      - run: npm install
+        name: Install dependencies
+      - run: npm test
+        name: Run unit tests
+  e2e:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
+        name: Integration tests
+        with:
+          start: npm start
+          wait-on: 'http://localhost:3000'
+        env:
+          BROWSER: none
