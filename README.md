@@ -1,5 +1,5 @@
 # UUID Generator Chrome Extension
-
+[![Build](https://github.com/eps90/uuid-generator-chrome-extension/actions/workflows/test.yml/badge.svg?branch=master&event=push)](https://github.com/eps90/uuid-generator-chrome-extension/actions/workflows/test.yml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f6e975f002f0452b997f0d137ec60256)](https://www.codacy.com/gh/eps90/uuid-generator-chrome-extension/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eps90/uuid-generator-chrome-extension&amp;utm_campaign=Badge_Grade)
 
 ## About
