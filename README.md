@@ -34,7 +34,7 @@ Install npm dependencies and run following scripts to develop the project:
 # Install dependencies
 npm install
 
-# Run the dev-server
+# Run the app locally
 npm start
 ```
 
@@ -43,6 +43,24 @@ npm start
 ```bash
 npm run-script build
 ```
+
+#### Running the tests
+Unit tests
+```bash
+npm test
+```
+
+The project uses [Cypress](https://www.cypress.io/) to run browser e2e tests. 
+You can run them locally manually having the app started with `npm start` with:
+```bash
+npx cypress open
+```
+Or just run all the test with:
+```bash
+npx cypress run
+```
+
+For more details on how to use the Cypress, please refer to their [docs](https://docs.cypress.io/guides/guides/command-line).
 
 ### With docker-compose
 
@@ -61,6 +79,6 @@ Following events are registered:
 * **UI/COPY** - sent when UUID is copied from the UI
 * **LINK/CLICK** - sent when link is clicked the from the UI level
 
-You can configure your tracking key by putting it into `.env` file (see `.env.dist` for the example)
+You can configure your tracking key by putting it into `.env.local` file (see `.env` for the example and [how to use environment variables in React Apps](https://create-react-app.dev/docs/adding-custom-environment-variables))
 ## Contributing
 Please read CONTRIBUTING.md for details on the code of conduct, and the process for submitting pull requests.
