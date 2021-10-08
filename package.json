@@ -1,6 +1,6 @@
 {
   "name": "uuid-generator-chrome-extension",
-  "version": "0.2.3-beta.2",
+  "version": "0.3.0",
   "description": "Easily generate UUID",
   "main": "index.js",
   "author": "Jakub Turek <ja@kubaturek.pl>",
@@ -9,7 +9,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "bump": "bump package.json package-lock.json public/manifest.json"
   },
   "devDependencies": {
     "@jsdevtools/version-bump-prompt": "^6.1.0",
