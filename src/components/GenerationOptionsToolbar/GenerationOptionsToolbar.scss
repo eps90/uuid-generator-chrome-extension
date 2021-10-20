@@ -1,0 +1,50 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.options {
+    margin-bottom: 15px;
+    &__group {
+        display: inline-block;
+        text-align: left;
+        padding: 0 $uuidPadding;
+
+        &:not(:last-child) {
+            border-right: 1px $colorBlueVeryLight solid;
+        }
+    }
+
+    .radio-element, .checkbox-element {
+        &:hover {
+            background-color: $colorBlueVeryLight;
+        }
+        &:not(:first-child) {
+            margin-left: 5px;
+        }
+
+        &__label {
+            @include comic-text-shadow($dropShadow: 2px);
+            font-family: $monoFontFamily;
+            font-size: $midFontSize;
+            padding-left: 5px;
+            padding-right: $uuidPadding;
+        }
+    }
+
+    .input-element {
+        &__control {
+            @include comic-text-shadow($dropShadow: 1px);
+            width: 75px;
+            text-align: center;
+            font-family: $monoFontFamily;
+            font-size: $midFontSize;
+            background-color: transparent;
+            border: none;
+            color: $defaultFontColor;
+            padding: 5px $uuidPadding 5px 0;
+
+            &:hover {
+                background-color: $colorBlueVeryLight;
+            }
+        }
+    }
+}

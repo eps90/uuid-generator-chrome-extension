@@ -1,0 +1,78 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.multi-uuid {
+    margin: 15px 0;
+
+    &__value {
+        @include comic-text-shadow(1px, 3px, $shadowColor);
+        display: inline-block;
+        font-weight: $boldWeight;
+        font-family: $monoFontFamily;
+        font-size: $midFontSize;
+        color: $colorWhite;
+        background-color: transparent;
+        border: none;
+        padding: $uuidPadding;
+        margin: 0 5px;
+        width: 390px;
+        height: 120px;
+        text-align: center;
+        resize: none;
+
+        &:hover {
+            background-color: $colorBlueVeryLight;
+            cursor: pointer;
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $colorBlueDarkABit;
+            }
+        }
+
+        &::-webkit-scrollbar {
+            background: transparent;
+            width: 0.5em;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: transparentize($colorBlueDarkABit, 0.5);
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        &::-webkit-resizer {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 0.5em 0.5em;
+            border-color: transparent transparent $colorBlueDarkABit transparent;
+        }
+    }
+
+    &__toolbar-button {
+        color: $colorWhite;
+        background-color: $colorBlueDarkABit;
+        border: none;
+        font-size: $midFontSize;
+        padding: 3px 5px;
+        border-radius: 3px;
+        cursor: pointer;
+        vertical-align: top;
+        margin-left: 15px;
+
+        &:hover:not(&--checked) {
+            background-color: $colorBlueDark;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &--checked {
+            background-color: $colorGreen;
+        }
+    }
+}
