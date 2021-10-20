@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.mode-switcher {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 2 * $footerPaddingTop;
+    margin-bottom: $smallFontSize;
+    padding-top: $footerPaddingTop;
+    width: 100%;
+    display: block;
+
+    &__mode {
+        width: 50%;
+        border: none;
+        height: 50px;
+        background-color: $colorBlueLight;
+        color: $colorWhite;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $colorBlueVeryLight;
+        }
+
+        &--active {
+            background-color: $colorBlueVeryLight;
+        }
+    }
+}

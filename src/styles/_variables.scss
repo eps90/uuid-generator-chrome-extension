@@ -1,5 +1,5 @@
-$contentWidth: 600px;
-$contentHeight: 200px;
+$contentWidth: 800px;
+$contentHeight: 400px;
 
 $colorGreen: #19801f;
 $colorBlueLight: #5490cd;
@@ -29,5 +29,6 @@ $footerFontFamily: 'Roboto', sans-serif;
 
 $headerPadding: 12px;
 $contentPadding: 30px;
-$footerPadding: 10px 0;
+$footerPaddingTop: 10px;
+$footerPadding: $footerPaddingTop 0;
 $uuidPadding: 10px;
