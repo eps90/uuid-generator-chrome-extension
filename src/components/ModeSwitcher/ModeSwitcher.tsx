@@ -39,12 +39,14 @@ function ModeSwitcher({state, onSwitch}: Props) {
             <button aria-label="Single mode" {...getAriaAttributes("single")}
                     className={getClassName("single")}
                     onClick={handleOnClick("single")}
+                    data-cy="single-mode-switcher"
             >
                 <FontAwesomeIcon icon={faHashtag} />
             </button>
             <button aria-label="Multi mode" {...getAriaAttributes("multi")}
                     className={getClassName("multi")}
                     onClick={handleOnClick("multi")}
+                    data-cy="multi-mode-switcher"
             >
                 <FontAwesomeIcon icon={faInfinity} />
             </button>

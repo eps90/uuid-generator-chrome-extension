@@ -3,6 +3,10 @@ describe("Extension page", () => {
         cy.visit("/");
     })
 
+    it("should have single mode selected by default", () => {
+        cy.dataCy("single-mode-switcher").should("have.attr", "aria-selected", "true");
+    });
+
     it("should open the page successfully", () => {
         cy.dataCy("uuid-value").should('exist');
     });

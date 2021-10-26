@@ -31,7 +31,8 @@ export function RadioGroup({children, name, onChange, selectedValue}: RadioGroup
             ...radioProps,
             name,
             onChange: _onChange,
-            checked: selectedValue === radioProps.value
+            checked: selectedValue === radioProps.value,
+            "data-cy": `radio_${name}_${radioProps.value}`
         }
     }
 

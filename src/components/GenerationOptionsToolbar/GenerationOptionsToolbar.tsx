@@ -38,6 +38,7 @@ function GenerationOptionsToolbar({quotes, separators, size, onChange}: Props) {
                     <input type="number" name="size" value={size} min="0"
                            className="input-element__control"
                            aria-label="size"
+                           data-cy="size-selector"
                            onChange={(e) => onChange("size", e.target.value)} />
                 </label>
             </div>

@@ -38,7 +38,7 @@ function MultiUuidValue({uuids, onCopy}: Props) {
 
     return (
         <div className="multi-uuid">
-            <textarea className="multi-uuid__value" readOnly value={uuids} onFocus={handleFocus} />
+            <textarea className="multi-uuid__value" readOnly value={uuids} onFocus={handleFocus} data-cy="multi-uuid-value" />
             <button className={getButtonClassNames()} onClick={handleCopy} title="Copy" data-cy="multi-uuid-copy-btn">
                 <FontAwesomeIcon icon={getIcon()} fixedWidth/>
             </button>

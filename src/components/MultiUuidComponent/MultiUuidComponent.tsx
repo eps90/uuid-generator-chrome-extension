@@ -7,7 +7,7 @@ import ReactGa from "react-ga";
 import {EVENT} from "../../constants";
 
 export type SeparatorType = "newline" | "comma"
-export type QuoteType = "double" | "single" | "none";
+export type QuoteType = "double" | "single" | "nothing";
 
 export interface GenerationOptions {
     quotes: QuoteType,
@@ -20,7 +20,7 @@ interface Props {
 }
 
 const defaultOptions: GenerationOptions = {
-    quotes: "none",
+    quotes: "nothing",
     separators: new Set(),
     size: 10
 }
