@@ -25,6 +25,15 @@ describe("ModeSwitcher component", () => {
         expect(onSwitch).toHaveBeenCalledWith("multi");
     });
 
+    it("should should not call onSwitchFunction when selecting active mode", () => {
+        const onSwitch = jest.fn();
+        const {getByLabelText} = render(createComponentUnderTest("single", onSwitch));
+        act(() => {
+            fireEvent.click(getByLabelText("Single mode"));
+        });
+        expect(onSwitch).not.toHaveBeenCalled();
+    });
+
     function createComponentUnderTest(state: ModeType = "single", onSwitch = () => {}) {
         return <ModeSwitcher state={state} onSwitch={onSwitch} />;
     }

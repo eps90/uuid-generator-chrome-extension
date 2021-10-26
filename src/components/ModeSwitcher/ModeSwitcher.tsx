@@ -30,8 +30,8 @@ function ModeSwitcher({state, onSwitch}: Props) {
         return attrs;
     }
 
-    const handleOnClick = (state: ModeType) => () => {
-        onSwitch(state);
+    const handleOnClick = (selectedState: ModeType) => () => {
+        selectedState !== state && onSwitch(selectedState);
     }
 
     return (
