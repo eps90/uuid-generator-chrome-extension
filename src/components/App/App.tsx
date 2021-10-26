@@ -7,11 +7,14 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import MultiUuidComponent from "../MultiUuidComponent/MultiUuidComponent";
 import ModeSwitcher, {ModeType} from "../ModeSwitcher/ModeSwitcher";
+import ReactGa from "react-ga";
+import {EVENT} from "../../constants";
 
 function App() {
     const [singleView, setSingleView] = useState(true);
-    const onSwitch = (state: ModeType) => {
-        setSingleView(state === "single");
+    const onSwitch = (mode: ModeType) => {
+        setSingleView(mode === "single");
+        ReactGa.event({...EVENT.MODE_SELECT, label: mode.toUpperCase()})
     }
     const getMode = () => {
         return singleView ? "single" : "multi";

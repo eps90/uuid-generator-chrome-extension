@@ -24,7 +24,7 @@ function GenerationOptionsToolbar({quotes, separators, size, onChange}: Props) {
         <div className="options">
             <div className="options__group">
                 <RadioGroup name="quotes" onChange={(e) => onChange("quotes", e)} selectedValue={quotes}>
-                    <Radio value="none" label="None" content="#" />
+                    <Radio value="nothing" label="None" content="#" />
                     <Radio value="single" label="Single" content={`'#'`} />
                     <Radio value="double" label="Double" content={`"#"`} />
                 </RadioGroup>
