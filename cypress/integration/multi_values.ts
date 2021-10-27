@@ -31,7 +31,7 @@ describe("Multi value generation", () => {
         cy.dataCy("multi-uuid-value").invoke("val").should("match", /([0-9a-f\-]+,\s){9}([0-9a-f\-]+)/);
 
         cy.dataCy("checkbox_newline").check();
-        cy.dataCy("multi-uuid-value").invoke("val").should("match", /([0-9a-f\-]+,\s\n){9}([0-9a-f\-]+)/);
+        cy.dataCy("multi-uuid-value").invoke("val").should("match", /([0-9a-f\-]+,\n){9}([0-9a-f\-]+)/);
 
         cy.dataCy("checkbox_comma").uncheck();
         cy.dataCy("multi-uuid-value").invoke("val").should("match", /([0-9a-f\-]+\n){9}([0-9a-f\-]+)/);
@@ -48,7 +48,7 @@ describe("Multi value generation", () => {
         cy.dataCy("checkbox_newline").check();
         cy.dataCy("size-selector").clear().type("5");
 
-        cy.dataCy("multi-uuid-value").invoke("val").should("match", /('[0-9a-f\-]+',\s\n){4}'[0-9a-f\-]+'/);
+        cy.dataCy("multi-uuid-value").invoke("val").should("match", /('[0-9a-f\-]+',\n){4}'[0-9a-f\-]+'/);
     });
 
     it("should regenerate the uuid list on clicking the refresh button", () => {

@@ -55,7 +55,7 @@ describe("MultiUuidComponent component", () => {
             fireEvent.click(getByLabelText("New line"))
             fireEvent.click(getByLabelText("Comma"))
         });
-        expect(getByRole("textbox")).toHaveValue(uuids.join(", \n"))
+        expect(getByRole("textbox")).toHaveValue(uuids.join(",\n"))
     });
 
     it("should define the size of the uuid list", () => {

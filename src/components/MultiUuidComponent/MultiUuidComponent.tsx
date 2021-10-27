@@ -34,7 +34,7 @@ function MultiUuidComponent({generateMultiUuid}: Props) {
             separator += ", "
         }
         if (options.separators.has("newline")) {
-            separator += "\n";
+            separator = separator.trim() + "\n";
         }
         if (separator.length === 0) {
             separator = " ";
