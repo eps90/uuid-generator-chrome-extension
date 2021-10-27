@@ -105,9 +105,11 @@ describe("MultiUuidComponent component", () => {
                 {"eventAction": "OPTION_SELECT", "eventCategory": "UI", "eventLabel": "SIZE=15"},
             ].map((e: any) => ["send", {...e, hitType: "event"}]);
 
-            expectedEvents.forEach(e => {
-                expect(ReactGa.testModeAPI.calls).toEqual(expect.arrayContaining([e]));
-            })
+            waitFor(() => {
+                expectedEvents.forEach(e => {
+                    expect(ReactGa.testModeAPI.calls).toEqual(expect.arrayContaining([e]));
+                })
+            });
         });
 
         it("should fire event on refreshing the uuids list", () => {
