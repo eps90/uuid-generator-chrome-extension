@@ -1,4 +1,4 @@
-describe("Multi value generation", () => {
+describe("Multi UUID generation", () => {
     beforeEach(() => {
         cy.visit("/");
         cy.dataCy("multi-mode-switcher").click();

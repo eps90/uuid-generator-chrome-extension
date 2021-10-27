@@ -1,4 +1,4 @@
-describe("Extension page", () => {
+describe("Single UUID generation", () => {
     beforeEach(() => {
         cy.visit("/");
     })
