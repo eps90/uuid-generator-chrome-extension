@@ -35,7 +35,7 @@ function GenerationOptionsToolbar({quotes, separators, size, onChange}: Props) {
             </div>
             <div className="options__group">
                 <label className="input-element">
-                    <input type="number" name="size" value={size} min="0"
+                    <input type="number" name="size" value={size} min="1"
                            className="input-element__control"
                            aria-label="size"
                            data-cy="size-selector"

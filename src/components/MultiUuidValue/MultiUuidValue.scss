@@ -74,5 +74,15 @@
         &--checked {
             background-color: $colorGreen;
         }
+
+        &:disabled {
+            background-color: $colorBlueVeryLight;
+            color: $colorBlueLight;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: lighten($colorBlueVeryLight, 2%);
+            }
+        }
     }
 }
