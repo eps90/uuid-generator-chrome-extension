@@ -5,7 +5,7 @@ import {GenerationOptions, SeparatorType} from "../MultiUuidComponent/MultiUuidC
 import Checkbox from "./Checkbox";
 
 interface Props extends GenerationOptions {
-    onChange: (name: string, value: any) => void
+    onChange: (name: keyof GenerationOptions, value: any) => void
 }
 
 function GenerationOptionsToolbar({quotes, separators, size, onChange}: Props) {

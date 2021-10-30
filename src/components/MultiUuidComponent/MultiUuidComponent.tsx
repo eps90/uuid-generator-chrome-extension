@@ -5,6 +5,7 @@ import Toolbar from "../Toolbar/Toolbar";
 import GenerationOptionsToolbar from "../GenerationOptionsToolbar/GenerationOptionsToolbar";
 import ReactGa from "react-ga";
 import {EVENT} from "../../constants";
+import {debounce} from "lodash";
 
 export type SeparatorType = "newline" | "comma"
 export type QuoteType = "double" | "single" | "nothing";
@@ -58,18 +59,14 @@ function MultiUuidComponent({generateMultiUuid}: Props) {
         ReactGa.event({...EVENT.REFRESH_MULTI, label: `SIZE=${options.size}`});
     }
 
-    const onChange = (name: string, value: any) => {
+    const onChange = (name: keyof GenerationOptions, value: any) => {
         setOptions(currentState => {
             return {...currentState, [name]: value};
         });
         if (name === "size") {
             setUuids(generateMultiUuid(Number(value)));
         }
-        let processedValue = value;
-        if (name === "separators") {
-            processedValue = Array.from((value as Set<string>).values()).sort().join(",")
-        }
-        ReactGa.event({...EVENT.OPTION_SELECT, label: `${name.toUpperCase()}=${processedValue}`});
+        sendGaEvent(name, value);
     };
 
     const onCopy = () => {
@@ -84,5 +81,22 @@ function MultiUuidComponent({generateMultiUuid}: Props) {
         </div>
     );
 }
+
+const eventsFuns: { [key in keyof Partial<GenerationOptions>]: any } = {};
+
+const sendGaEvent = (property: keyof GenerationOptions, value: any) => {
+    if (!eventsFuns[property]) {
+        eventsFuns[property] = debounce((_property: keyof GenerationOptions, _value: any) => {
+            let processedValue = _value
+            if (_property === "separators") {
+                processedValue = (_value as Set<string>).size > 0
+                    ? Array.from((_value as Set<string>).values()).sort().join(",")
+                    : "empty"
+            }
+            ReactGa.event({...EVENT.OPTION_SELECT, label: `${_property.toUpperCase()}=${processedValue}`});
+        }, 1000);
+    }
+    return eventsFuns[property](property, value)
+};
 
 export default MultiUuidComponent;
