@@ -75,9 +75,17 @@ docker-compose run node npm install
 This project provides a very simple Google Analytics page views and events tracing.
 Following events are registered:
 
-* **UI/REFRESH** - sent when new UUID is generated
-* **UI/COPY** - sent when UUID is copied from the UI
-* **LINK/CLICK** - sent when link is clicked the from the UI level
+| Event (category/action) | Labels | Description |
+| --- | --- | --- |
+| **UI/MODE_SELECT** | <ul><li>SINGLE</li><li>MULTI</li>no :pno</ul> | Switching between generation screens |
+| **UI/REFRESH** | ~ | New single UUID generation |
+| **UI/COPY** | ~ | Copying single UUID using copy the button |
+| **UI/REFRESH_MULTI** | SIZE=x | Multi UUID generation with specified size |
+| **UI/COPY_MULTI** | SIZE=x | Copying multiple UUID using copy the button |
+| **UI/OPTION_SELECT** | E.g. <ul><li>SIZE=x</li><li>SEPARATORS=comma,newline</li><li>SEPARATORS=nothing</li><li>QUOTES=single</li></ul> | Selecting an option in multi generation screen |
+| **LINK/CLICK** | ~ | Clicking the external link in the footer
+
+
 
 You can configure your tracking key by putting it into `.env.local` file (see `.env` for the example and [how to use environment variables in React Apps](https://create-react-app.dev/docs/adding-custom-environment-variables))
 ## Contributing

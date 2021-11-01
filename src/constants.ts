@@ -5,7 +5,8 @@ export const EVENT = {
     },
     REFRESH_MULTI: {
         category: "UI",
-        action: "REFRESH_MULTI"
+        action: "REFRESH_MULTI",
+        label: ""
     },
     LINK_CLICK: {
         category: "LINK",
@@ -17,7 +18,8 @@ export const EVENT = {
     },
     COPY_MULTI: {
         category: "UI",
-        action: "COPY_MULTI"
+        action: "COPY_MULTI",
+        label: ""
     },
     OPTION_SELECT: {
         category: "UI",
