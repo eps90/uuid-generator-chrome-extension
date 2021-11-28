@@ -3,5 +3,8 @@
 /node_modules
 /coverage
 /build
-/.env.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 /cypress/videos
