@@ -3,6 +3,7 @@ on:
   release:
     types:
       - published
+  workflow_dispatch: ~
 jobs:
   test:
     uses: eps90/uuid-generator-chrome-extension/.github/workflows/test.yml@master
