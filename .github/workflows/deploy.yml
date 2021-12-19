@@ -3,7 +3,12 @@ on:
   release:
     types:
       - published
-  workflow_dispatch: ~
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the extension?
+        required: true
+        default: 'false'
 jobs:
   test:
     uses: eps90/uuid-generator-chrome-extension/.github/workflows/test.yml@master
@@ -36,6 +41,8 @@ jobs:
         name: Pack the extension
         with:
           args: zip -qq -r main.zip build
+      - name: Publish check
+        run: 'echo Publish check result: ${{ github.event.inputs.publish == "true" }}'
       - name: Chrome Extension upload & publish
         uses: Passiverecords/chrome-extension-upload-action@1.4.1
         with:
@@ -44,4 +51,4 @@ jobs:
           client-secret: ${{ secrets.CLIENT_SECRET }}
           file-name: 'main.zip'
           app-id: ${{ secrets.EXTENSION_ID }}
-          publish: true
+          publish: ${{ github.event.inputs.publish == 'true' }}
