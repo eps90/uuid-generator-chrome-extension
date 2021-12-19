@@ -42,7 +42,7 @@ jobs:
         with:
           args: zip -qq -r main.zip build
       - name: Publish check
-        run: 'echo Publish check result: ${{ github.event.inputs.publish == "true" }}'
+        run: 'echo Publish check result: ${{ github.event.inputs.publish == ''true'' }}'
       - name: Chrome Extension upload & publish
         uses: Passiverecords/chrome-extension-upload-action@1.4.1
         with:
