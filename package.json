@@ -44,7 +44,7 @@
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "lodash": "^4.17.21",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.0",
     "react": "^17.0.2",
